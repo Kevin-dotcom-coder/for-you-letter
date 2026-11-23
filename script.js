@@ -4,12 +4,18 @@ const invitation = document.querySelector("#invitation");
 const yesButton = document.querySelector("#yesButton");
 const maybeButton = document.querySelector("#maybeButton");
 const confirmation = document.querySelector("#confirmation");
-const closeConfirmation = document.querySelector("#closeConfirmation");
 const confettiLayer = document.querySelector("#confettiLayer");
 const maybeWrap = document.querySelector("#maybeWrap");
 const meetingDate = document.querySelector("#meetingDate");
 const meetingTime = document.querySelector("#meetingTime");
 const dateSummary = document.querySelector("#dateSummary");
+const placeOptions = document.querySelectorAll(".place-option");
+const confirmationDateTime = document.querySelector("#confirmationDateTime");
+const confirmationPlace = document.querySelector("#confirmationPlace");
+const sendAnswer = document.querySelector("#sendAnswer");
+
+// Shu joyni qabul qiluvchi foydalanuvchining Telegram username'i bilan almashtiring.
+const TELEGRAM_USERNAME = "TELEGRAM_USERNAME";
 
 let maybeAttempts = 0;
 let lastFocusedElement;
@@ -32,6 +38,17 @@ meetingDate.addEventListener("input", updateDateSummary);
 meetingTime.addEventListener("input", updateDateSummary);
 updateDateSummary();
 
+placeOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    placeOptions.forEach((item) => {
+      item.classList.remove("is-selected");
+      item.setAttribute("aria-checked", "false");
+    });
+    option.classList.add("is-selected");
+    option.setAttribute("aria-checked", "true");
+  });
+});
+
 openButton.addEventListener("click", () => {
   scene.classList.add("is-open");
   invitation.setAttribute("aria-hidden", "false");
@@ -39,16 +56,13 @@ openButton.addEventListener("click", () => {
 
 function showConfirmation() {
   lastFocusedElement = document.activeElement;
+  const selectedPlace = document.querySelector(".place-option.is-selected");
+  confirmationDateTime.textContent = dateSummary.textContent || "Sana va vaqt tanlanmagan";
+  confirmationPlace.textContent = selectedPlace?.dataset.place || "Joy tanlanmagan";
   confirmation.classList.add("is-visible");
   confirmation.setAttribute("aria-hidden", "false");
-  closeConfirmation.focus();
+  sendAnswer.focus();
   launchConfetti();
-}
-
-function hideConfirmation() {
-  confirmation.classList.remove("is-visible");
-  confirmation.setAttribute("aria-hidden", "true");
-  lastFocusedElement?.focus();
 }
 
 function launchConfetti() {
@@ -93,12 +107,10 @@ maybeButton.addEventListener("click", () => {
   }
   moveMaybeButton();
 });
-closeConfirmation.addEventListener("click", hideConfirmation);
-confirmation.addEventListener("click", (event) => {
-  if (event.target === confirmation) hideConfirmation();
-});
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && confirmation.classList.contains("is-visible")) {
-    hideConfirmation();
-  }
+sendAnswer.addEventListener("click", () => {
+  const selectedPlace = document.querySelector(".place-option.is-selected");
+  const place = selectedPlace?.dataset.place || "Joy tanlanmagan";
+  const message = `Albatta, boraman! ❤️\nSana va vaqt: ${dateSummary.textContent}\nJoy: ${place}`;
+  const telegramUrl = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
+  window.open(telegramUrl, "_blank", "noopener,noreferrer");
 });

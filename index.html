@@ -62,20 +62,12 @@
             <span class="detail-icon" aria-hidden="true">📍</span>
             <div class="location-copy">
               <h3>Qayerda</h3>
-              <p>Bon! kafesi, Toshkent</p>
-              <div class="map-links">
-                <a href="https://www.google.com/maps/search/?api=1&amp;query=Bon%21+cafe+Tashkent" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
-                <a href="https://yandex.com/maps/?text=Bon%21%20cafe%20Tashkent" target="_blank" rel="noopener noreferrer">Yandex Maps ↗</a>
+              <div class="place-options" role="radiogroup" aria-label="Uchrashuv joyi">
+                <button class="place-option" type="button" role="radio" aria-checked="false" data-place="Coffee">Coffee</button>
+                <button class="place-option" type="button" role="radio" aria-checked="false" data-place="Kino">Kino</button>
+                <button class="place-option" type="button" role="radio" aria-checked="false" data-place="Ovqatlanish">Ovqatlanish</button>
               </div>
             </div>
-          </div>
-          <div class="detail">
-            <span class="detail-icon" aria-hidden="true">💫</span>
-            <div><h3>Reja</h3><p>Issiq kofe → Kechki sayr → Chiroyli rasmga tushish</p></div>
-          </div>
-          <div class="detail">
-            <span class="detail-icon" aria-hidden="true">👗</span>
-            <div><h3>Dress-code / Eslatma</h3><p>O‘zingga qulay va chiroyli kiyim, yaxshi kayfiyat yetarli</p></div>
           </div>
         </div>
 
@@ -94,7 +86,17 @@
         <span class="confirmation-heart" aria-hidden="true">💌</span>
         <h2 id="confirmationTitle">Ajoyib!</h2>
         <p>Unda o‘sha kuni ko‘rishguncha 😊</p>
-        <button id="closeConfirmation" type="button">Yopish</button>
+        <div class="confirmation-details" aria-label="Tanlangan uchrashuv tafsilotlari">
+          <div class="confirmation-detail">
+            <span aria-hidden="true">📅</span>
+            <div><small>Sana va vaqt</small><strong id="confirmationDateTime">—</strong></div>
+          </div>
+          <div class="confirmation-detail">
+            <span aria-hidden="true">📍</span>
+            <div><small>Joy</small><strong id="confirmationPlace">—</strong></div>
+          </div>
+        </div>
+        <button class="send-button" id="sendAnswer" type="button">Javobni yuborish 💌</button>
       </div>
     </div>
     <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>

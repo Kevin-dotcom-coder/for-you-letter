@@ -229,8 +229,26 @@ button { cursor: pointer; }
   font-size: .68rem;
 }
 .date-control input:focus-visible { outline: 2px solid #c06b78; outline-offset: 2px; }
-.map-links { display: flex; flex-wrap: wrap; gap: 5px 12px; margin-top: 5px; }
-.map-links a { color: var(--wine); font-size: .64rem; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.place-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 7px; }
+.place-option {
+  min-width: 0;
+  min-height: 38px;
+  padding: 7px 5px;
+  border: 1px solid #e6d6d0;
+  border-radius: 9px;
+  color: #735d5a;
+  background: #fffdfa;
+  font-size: .68rem;
+  font-weight: 700;
+  transition: transform .18s ease, border-color .18s ease, color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.place-option:hover { transform: translateY(-1px); border-color: #c89a9e; }
+.place-option.is-selected {
+  border-color: var(--wine);
+  color: white;
+  background: linear-gradient(135deg, #873c4c, #65283a);
+  box-shadow: 0 5px 12px rgba(101,40,58,.16);
+}
 
 .actions { display: grid; gap: 8px; margin-top: 15px; }
 .yes-button, .maybe-button, .confirmation-card button {
@@ -300,7 +318,13 @@ button { cursor: pointer; }
 .confirmation-heart { font-size: 2rem; }
 .confirmation-card h2 { margin: 8px 0 5px; color: var(--wine); font-size: 2rem; }
 .confirmation-card p { margin: 0 0 19px; color: var(--muted); font-size: .9rem; }
-.confirmation-card button { width: 100%; border: 0; color: white; background: var(--wine); }
+.confirmation-details { display: grid; gap: 8px; margin: 0 0 14px; text-align: left; }
+.confirmation-detail { display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 8px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 10px; background: #fbf6f1; }
+.confirmation-detail > span { font-size: 1.05rem; text-align: center; }
+.confirmation-detail div { display: grid; gap: 1px; }
+.confirmation-detail small { color: var(--muted); font-size: .62rem; }
+.confirmation-detail strong { color: var(--ink); font-size: .78rem; line-height: 1.35; }
+.send-button { width: 100%; border: 0; color: white; background: var(--wine); }
 .confetti-layer { position: fixed; z-index: 11; inset: 0; overflow: hidden; pointer-events: none; }
 .confetti {
   position: absolute;
