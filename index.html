@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f1e8">
+  <meta property="og:title" content="Senga kichik xabar bor 💌">
+  <meta property="og:description" content="Kichkina date qilamizmi? Taklifnomani ochib ko‘r ✨">
+  <title>Senga kichik xabar bor 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scene">
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <section class="intro" id="intro" aria-label="Taklifnomani ochish">
+      <p class="eyebrow">BIR OZGINA SIR BOR...</p>
+      <h1>Senga kichik<br>xabar bor <span aria-hidden="true">💌</span></h1>
+      <p class="tap-hint">Ochish uchun bos</p>
+
+      <button class="envelope" id="openInvitation" type="button" aria-label="Konvertni ochish">
+        <span class="envelope-back"></span>
+        <span class="letter-preview" aria-hidden="true">
+          <span>YOU’RE INVITED</span>
+          <span class="preview-heart">♡</span>
+        </span>
+        <span class="envelope-pocket"></span>
+        <span class="envelope-flap"></span>
+        <span class="wax-seal" aria-hidden="true">♥</span>
+      </button>
+      <p class="tiny-note">Faqat sen uchun, mehr bilan</p>
+    </section>
+
+    <section class="invitation" id="invitation" aria-labelledby="inviteTitle" aria-hidden="true">
+      <article class="card">
+        <div class="card-topline"><span>✦</span> A LITTLE DATE INVITATION <span>✦</span></div>
+        <div class="card-heart" aria-hidden="true">♡</div>
+        <h2 id="inviteTitle">Kichkina date<br>qilamizmi? <span>✨</span></h2>
+        <p class="intro-copy">Sen bilan birga chiroyli va esda qolarli vaqt o‘tkazishni xohlayman.</p>
+
+        <div class="details">
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">📅</span>
+            <div><h3>Qachon</h3><p>Juma, 27-noyabr, soat 18:30</p></div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">📍</span>
+            <div class="location-copy">
+              <h3>Qayerda</h3>
+              <p>Bon! kafesi, Toshkent</p>
+              <div class="map-links">
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=Bon%21+cafe+Tashkent" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
+                <a href="https://yandex.com/maps/?text=Bon%21%20cafe%20Tashkent" target="_blank" rel="noopener noreferrer">Yandex Maps ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">💫</span>
+            <div><h3>Reja</h3><p>Issiq kofe → Kechki sayr → Chiroyli rasmga tushish</p></div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">👗</span>
+            <div><h3>Dress-code / Eslatma</h3><p>O‘zingga qulay va chiroyli kiyim, yaxshi kayfiyat yetarli</p></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="yes-button" id="yesButton" type="button">Albatta, boraman! <span aria-hidden="true">❤️</span></button>
+          <div class="maybe-wrap" id="maybeWrap">
+            <button class="maybe-button" id="maybeButton" type="button">O‘ylab ko‘raman <span aria-hidden="true">🤔</span></button>
+          </div>
+        </div>
+        <p class="signature">Seni ko‘rishni intiqlik bilan kutaman <span>♡</span></p>
+      </article>
+    </section>
+
+    <div class="confirmation" id="confirmation" role="dialog" aria-modal="true" aria-labelledby="confirmationTitle" aria-hidden="true">
+      <div class="confirmation-card">
+        <span class="confirmation-heart" aria-hidden="true">💌</span>
+        <h2 id="confirmationTitle">Ajoyib!</h2>
+        <p>Unda o‘sha kuni ko‘rishguncha 😊</p>
+        <button id="closeConfirmation" type="button">Yopish</button>
+      </div>
+    </div>
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
