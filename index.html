@@ -45,7 +45,18 @@
         <div class="details">
           <div class="detail">
             <span class="detail-icon" aria-hidden="true">📅</span>
-            <div><h3>Qachon</h3><p>Juma, 27-noyabr, soat 18:30</p></div>
+            <div class="date-copy">
+              <h3>Qachon</h3>
+              <p class="date-summary" id="dateSummary" aria-live="polite">Juma, 27-noyabr, soat 18:30</p>
+              <div class="date-controls">
+                <label class="date-control">Sana
+                  <input id="meetingDate" type="date" value="2026-11-27" aria-label="Uchrashuv sanasi">
+                </label>
+                <label class="date-control">Vaqt
+                  <input id="meetingTime" type="time" value="18:30" aria-label="Uchrashuv vaqti">
+                </label>
+              </div>
+            </div>
           </div>
           <div class="detail">
             <span class="detail-icon" aria-hidden="true">📍</span>

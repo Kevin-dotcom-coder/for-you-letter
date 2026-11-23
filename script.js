@@ -7,9 +7,30 @@ const confirmation = document.querySelector("#confirmation");
 const closeConfirmation = document.querySelector("#closeConfirmation");
 const confettiLayer = document.querySelector("#confettiLayer");
 const maybeWrap = document.querySelector("#maybeWrap");
+const meetingDate = document.querySelector("#meetingDate");
+const meetingTime = document.querySelector("#meetingTime");
+const dateSummary = document.querySelector("#dateSummary");
 
 let maybeAttempts = 0;
 let lastFocusedElement;
+const weekdays = ["yakshanba", "dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba"];
+const months = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
+
+function updateDateSummary() {
+  if (!meetingDate.value || !meetingTime.value) {
+    dateSummary.textContent = "Sana va vaqtni tanlang";
+    return;
+  }
+
+  const [year, month, day] = meetingDate.value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  const weekday = weekdays[date.getDay()];
+  dateSummary.textContent = `${weekday[0].toLocaleUpperCase()}${weekday.slice(1)}, ${day}-${months[month - 1]}, soat ${meetingTime.value}`;
+}
+
+meetingDate.addEventListener("input", updateDateSummary);
+meetingTime.addEventListener("input", updateDateSummary);
+updateDateSummary();
 
 openButton.addEventListener("click", () => {
   scene.classList.add("is-open");

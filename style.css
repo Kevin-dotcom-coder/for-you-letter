@@ -214,6 +214,21 @@ button { cursor: pointer; }
 .detail-icon { padding-top: 2px; font-size: 1.05rem; text-align: center; }
 .detail h3 { margin: 0 0 2px; color: var(--wine); font-size: .72rem; font-weight: 700; }
 .detail p { margin: 0; color: #655351; font-size: .74rem; line-height: 1.4; overflow-wrap: anywhere; }
+.date-controls { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .9fr); gap: 6px; margin-top: 7px; }
+.date-control { display: grid; min-width: 0; gap: 3px; color: var(--muted); font-size: .62rem; }
+.date-control input {
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+  padding: 5px;
+  border: 1px solid #e6d6d0;
+  border-radius: 7px;
+  color: var(--ink);
+  background: #fffdfa;
+  font: inherit;
+  font-size: .68rem;
+}
+.date-control input:focus-visible { outline: 2px solid #c06b78; outline-offset: 2px; }
 .map-links { display: flex; flex-wrap: wrap; gap: 5px 12px; margin-top: 5px; }
 .map-links a { color: var(--wine); font-size: .64rem; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
