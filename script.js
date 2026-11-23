@@ -110,7 +110,24 @@ maybeButton.addEventListener("click", () => {
 sendAnswer.addEventListener("click", () => {
   const selectedPlace = document.querySelector(".place-option.is-selected");
   const place = selectedPlace?.dataset.place || "Joy tanlanmagan";
-  const message = `Albatta, boraman! ❤️\nSana va vaqt: ${dateSummary.textContent}\nJoy: ${place}`;
-  const telegramUrl = `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(message)}`;
-  window.open(telegramUrl, "_blank", "noopener,noreferrer");
+  const message = [
+    "Salom! 💌",
+    "",
+    "Albatta, boraman! ❤️",
+    `📅 Sana va vaqt: ${dateSummary.textContent}`,
+    `📍 Joy: ${place}`,
+  ].join("\n");
+
+  if (navigator.share) {
+    navigator.share({
+      title: "Kichkina date javobi",
+      text: message,
+    }).catch((error) => {
+      if (error.name !== "AbortError") {
+        window.location.href = `https://t.me/share/url?text=${encodeURIComponent(message)}`;
+      }
+    });
+  } else {
+    window.location.href = `https://t.me/share/url?text=${encodeURIComponent(message)}`;
+  }
 });
